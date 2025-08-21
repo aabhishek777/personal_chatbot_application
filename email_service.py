@@ -8,11 +8,9 @@ from email.mime.multipart import MIMEMultipart
 dotenv.load_dotenv(override=True)
 
 # Sender & Receiver
-sender_email = "abhisheksinghqsstechnosoft@gmail.com"
-receiver_email = "aabhishekksinghh@gmail.com"
+sender_email = os.getenv("EMAIL_SENDER")
+receiver_email = os.getenv("EMAIL_RECIEVER")
 app_password = os.getenv("EMAIL_APP_PASSWORD")
-
-print(app_password)
 
 
 def send_email(subject, body, to_email, from_email, smtp_server, smtp_port, smtp_user, smtp_password):

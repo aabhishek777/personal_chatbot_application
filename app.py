@@ -56,7 +56,8 @@ tools = [{"type": "function", "function": record_user_details_json},
 def push(message):
     print(f"Push: {message}")
     # send mail
-    try:
+    if message is not None:
+     try:
       email_service.send_email(
          subject="New Tool Call Recorded",
          body=message,
@@ -67,7 +68,7 @@ def push(message):
          smtp_user=email_service.sender_email,
          smtp_password=os.getenv("EMAIL_APP_PASSWORD")
        )
-    except Exception as e:
+     except Exception as e:
         print(f"Failed to send email: {e}")
     print("Push completed successfully!")
    
